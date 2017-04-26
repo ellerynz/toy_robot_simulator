@@ -5,7 +5,7 @@ require_relative 'lib/validate_instructions'
 options = {}
 
 OptionParser.new do |parser|
-  parser.on("-f", "--file FILE", "The file of commands for the robot to run.") do |file|
+  parser.on('-f', '--file FILE', 'The file of commands for the robot to run.') do |file|
     options[:file] = file
   end
 end.parse!
