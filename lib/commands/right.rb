@@ -5,7 +5,7 @@ class Right < Command
   end
 
   def execute
-
+    @robot.direction = DetermineDirection.right(@robot.direction)
   end
 
 end
