@@ -3,6 +3,7 @@ require_relative '../../lib/commands/command'
 require_relative '../../lib/commands/move'
 require_relative '../../lib/robot'
 require_relative '../../lib/table'
+require_relative '../../lib/determine_direction'
 
 class MoveTest < Minitest::Test
 
@@ -10,7 +11,7 @@ class MoveTest < Minitest::Test
     @robot = Robot.new
     @robot.position = [0, 0]
     @robot.placed = true
-    @table = Table.new(max_x: 5, max_y: 5)
+    @table = Table.new(5, 5)
     @move = Move.new(@robot, @table)
   end
 

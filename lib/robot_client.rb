@@ -14,7 +14,7 @@ class RobotClient
 
   def initialize
     @robot = Robot.new
-    @table = Table.new(max_x: 5, max_y: 5)
+    @table = Table.new(5, 5)
     @composite_command = CompositeCommand.new
   end
 

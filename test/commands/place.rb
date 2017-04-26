@@ -3,12 +3,13 @@ require_relative '../../lib/commands/command'
 require_relative '../../lib/commands/place'
 require_relative '../../lib/robot'
 require_relative '../../lib/table'
+require_relative '../../lib/determine_direction'
 
 class PlaceTest < Minitest::Test
 
   def setup
     @robot = Robot.new
-    @table = Table.new(max_x: 5, max_y: 5)
+    @table = Table.new(5, 5)
   end
 
   def test_should_place_a_robot_when_given_a_valid_position

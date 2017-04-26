@@ -1,9 +1,9 @@
 # Determines whether a coordinate is within the table
 class Table
 
-  def initialize(min_x: 0, min_y: 0, max_x:, max_y:)
-    @min_x = min_x
-    @min_y = min_y
+  def initialize(max_x, max_y)
+    @min_x = 0
+    @min_y = 0
     @max_x = max_x
     @max_y = max_y
   end

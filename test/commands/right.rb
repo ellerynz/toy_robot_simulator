@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require_relative '../../lib/commands/command'
 require_relative '../../lib/commands/right'
 require_relative '../../lib/robot'
+require_relative '../../lib/determine_direction'
 
 class RightTest < Minitest::Test
 
