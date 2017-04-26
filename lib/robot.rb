@@ -3,6 +3,7 @@ require_relative 'determine_direction'
 class Robot
 
   attr_reader :direction
+  attr_accessor :position
 
   def initialize
     @position = nil
