@@ -17,4 +17,11 @@ class DetermineDirectionTest < Minitest::Test
     assert_equal :north, DetermineDirection.right(:west)
   end
 
+  def test_should_accept_an_uppercase_version_of_a_compass_point
+    assert_equal :north, DetermineDirection.validate_direction('NORTH')
+    assert_equal :east, DetermineDirection.validate_direction('EAST')
+    assert_equal :south, DetermineDirection.validate_direction('SOUTH')
+    assert_equal :west, DetermineDirection.validate_direction('WEST')
+  end
+
 end
