@@ -5,6 +5,7 @@ class Right < Command
   end
 
   def execute
+    return unless @robot.placed?
     @robot.direction = DetermineDirection.right(@robot.direction)
   end
 
