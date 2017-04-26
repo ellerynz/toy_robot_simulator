@@ -1,5 +1,6 @@
 require_relative 'robot'
 require_relative 'table'
+require_relative 'determine_direction'
 require_relative 'commands/command'
 require_relative 'commands/composite_command'
 require_relative 'commands/place'

@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require_relative '../lib/robot'
+require_relative '../lib/determine_direction'
 
 class RobotTest < Minitest::Test
 

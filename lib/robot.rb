@@ -1,5 +1,3 @@
-require_relative 'determine_direction'
-
 class Robot
 
   attr_reader :direction
