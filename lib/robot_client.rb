@@ -7,6 +7,7 @@ require_relative 'commands/move'
 require_relative 'commands/left'
 require_relative 'commands/right'
 require_relative 'commands/report'
+require_relative 'commands/null_command'
 
 class RobotClient
 
@@ -18,30 +19,31 @@ class RobotClient
 
   def execute(instructions)
     instructions.each do |instruction|
-      process_instruction(instruction)
+      @composite_command.add_command(process_instruction(instruction))
     end
     @composite_command.execute
   end
 
   private
 
+  # Returns the command for an instruction
   def process_instruction(instruction)
     instruction_parts = instruction.split(' ')
 
     case instruction_parts.first
     when 'PLACE'
       coordinates = instruction_parts.last.split(',')
-      @composite_command.add_command(Place.new(@robot, @table, *coordinates))
+      Place.new(@robot, @table, *coordinates)
     when 'MOVE'
-      @composite_command.add_command(Move.new(@robot, @table))
+      Move.new(@robot, @table)
     when 'LEFT'
-      @composite_command.add_command(Left.new(@robot))
+      Left.new(@robot)
     when 'RIGHT'
-      @composite_command.add_command(Right.new(@robot))
+      Right.new(@robot)
     when 'REPORT'
-      @composite_command.add_command(Report.new(@robot))
+      Report.new(@robot)
     else
-      "Invalid command: #{instruction}"
+      NullCommand.new(instruction)
     end
   end
 
