@@ -11,8 +11,8 @@ class Table
   def within_table?(x, y)
     @min_x <= x &&
       @min_y <= y &&
-      @max_x >= x &&
-      @max_y >= y
+      @max_x > x &&
+      @max_y > y
   end
 
 end
