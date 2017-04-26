@@ -6,6 +6,8 @@ class Move < Command
   end
 
   def execute
+    return unless @robot.placed?
+
     next_pos = next_position
     if @table.within_table?(*next_pos)
       @robot.position = next_pos

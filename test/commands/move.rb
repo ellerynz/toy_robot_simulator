@@ -9,6 +9,7 @@ class MoveTest < Minitest::Test
   def setup
     @robot = Robot.new
     @robot.position = [0, 0]
+    @robot.placed = true
     @table = Table.new(max_x: 5, max_y: 5)
     @move = Move.new(@robot, @table)
   end
@@ -29,6 +30,12 @@ class MoveTest < Minitest::Test
   def test_should_not_move_a_robot_from_within_bounds_to_out_of_bounds
     @robot.direction = :south
     assert_equal [0, 0], @robot.position
+    @move.execute
+    assert_equal [0, 0], @robot.position
+  end
+
+  def test_should_not_move_a_robot_that_has_not_been_placed
+    @robot.placed = false
     @move.execute
     assert_equal [0, 0], @robot.position
   end
