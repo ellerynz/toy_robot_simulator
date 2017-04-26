@@ -5,7 +5,7 @@ class NullCommand < Command
   end
 
   def execute
-    STDOUT.write("Unknown instruction '#{@instruction}'\n")
+    print "Unknown instruction '#{@instruction}'\n"
   end
 
 end
