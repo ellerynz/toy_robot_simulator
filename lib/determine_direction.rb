@@ -15,4 +15,13 @@ class DetermineDirection
     end
   end
 
+  def self.validate_direction(direction)
+    direction = direction.to_s.downcase.to_sym
+    if DIRECTIONS.include?(direction)
+      direction
+    else
+      :north
+    end
+  end
+
 end

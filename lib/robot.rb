@@ -17,9 +17,7 @@ class Robot
   end
 
   def direction=(new_direction)
-    if DetermineDirection::DIRECTIONS.include?(new_direction)
-      @direction = new_direction
-    end
+    @direction = DetermineDirection.validate_direction(new_direction)
   end
 
 end
