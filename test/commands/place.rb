@@ -9,7 +9,6 @@ class PlaceTest < Minitest::Test
   def setup
     @robot = Robot.new
     @table = Table.new(max_x: 5, max_y: 5)
-    @place = Place.new(@robot, @table)
   end
 
   def test_should_place_a_robot_when_given_a_valid_position
@@ -17,7 +16,7 @@ class PlaceTest < Minitest::Test
     assert @robot.position.nil?
     refute @robot.placed?
 
-    @place.execute(3, 3, :south)
+    Place.new(@robot, @table, 3, 3, :south).execute
 
     assert_equal :south, @robot.direction
     assert_equal [3, 3], @robot.position
@@ -29,7 +28,7 @@ class PlaceTest < Minitest::Test
     assert @robot.position.nil?
     refute @robot.placed?
 
-    @place.execute(-3, 3, :south)
+    Place.new(@robot, @table, -3, 3, :south).execute
 
     assert_equal :north, @robot.direction
     assert @robot.position.nil?

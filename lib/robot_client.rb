@@ -12,7 +12,7 @@ class RobotClient
 
   def initialize
     @robot = Robot.new
-    @table = Table.new
+    @table = Table.new(max_x: 5, max_y: 5)
     @composite_command = CompositeCommand.new
   end
 
@@ -26,9 +26,12 @@ class RobotClient
   private
 
   def process_instruction(instruction)
-    case instruction
+    instruction_parts = instruction.split(' ')
+
+    case instruction_parts.first
     when 'PLACE'
-      @composite_command.add_command(Place.new(@robot, @table))
+      coordinates = instruction_parts.last.split(',')
+      @composite_command.add_command(Place.new(@robot, @table, *coordinates))
     when 'MOVE'
       @composite_command.add_command(Move.new(@robot, @table))
     when 'LEFT'

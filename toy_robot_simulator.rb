@@ -1,4 +1,5 @@
 require 'optparse'
+require_relative 'lib/robot_client'
 
 options = {}
 
@@ -12,6 +13,7 @@ if options[:file]
   # `File#foreach` handles large files gracefully
   # `String#strip` is used to remove trailing newline characters
   instructions = File.foreach(options[:file]).map(&:strip)
+  RobotClient.new.execute(instructions)
 else
   STDOUT.write("Uhoh! Looks like we're missing the file of robot commands.\n")
 end
